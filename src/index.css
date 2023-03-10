@@ -5,7 +5,10 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #c6bfbf;
+  background-image: linear-gradient(to bottom, #c6bfbf, #e3dfdf);
+  background-repeat: no-repeat;
+  background-size:cover;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,6 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
 
 a {
   font-weight: 500;
@@ -43,6 +47,12 @@ body {
 h1 {
   font-size: 2em;
   line-height: 1.1;
+  color:darkslategrey;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  
 }
 
 button {

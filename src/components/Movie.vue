@@ -1,23 +1,38 @@
-<script setup>
-import { ref } from 'vue'
 
-defineProps({
-  msg: String,
-})
+  
+    <template >
+      <div class="icon">
+        <img src="src/assets/images/icon/icon-1.svg" alt="Movie DB logo" class="logo" />
+      </div>
+    </template>
+    
+  
 
+
+
+<script>
+export default {
+  name: "Movie",
+  props: {
+    title: {
+      type: String,
+      default: "Find Your Movie",
+    },
+  },
+  data() {
+    return {
+      movies: [],
+    };
+  },
+};
 </script>
 
-<template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-   
-  </div>
-
-</template>
-
 <style scoped>
-.read-the-docs {
-  color: #888;
+.logo {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  top: 0%;
+  left: 5%;
 }
 </style>

@@ -105,7 +105,7 @@ import 'primevue/resources/themes/saga-blue/theme.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
-import "../src/style.css";
+import "../src/index.css";
 
 const app = createApp(App);
 
