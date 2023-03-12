@@ -1,12 +1,12 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #c6bfbf;
-  background-image: linear-gradient(to bottom, #c6bfbf, #e3dfdf);
+  background-color: #e2dfdf;
+  background-image: linear-gradient(to bottom, #e2dfdf, #606060);
   background-repeat: no-repeat;
   background-size:cover;
 
@@ -15,25 +15,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
@@ -51,8 +32,6 @@ h1 {
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position: absolute;
-  
 }
 
 button {
@@ -67,15 +46,11 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ff64f5;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-.card {
-  padding: 2em;
 }
 
 #app {
@@ -84,15 +59,62 @@ button:focus-visible {
   padding: 2rem;
   text-align: center;
 }
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.movie img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2px;
+}
+
+.movie-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color:darkgreen;
+  font-weight: bolder;
+
+}
+
+.movie-rating {
+  margin: 0;
+  font-size: 14px;
+  color: #1e1d1d;
+  text-align: center;
+  font-weight: bolder;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  margin-right: 10px;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
+  
   button {
     background-color: #f9f9f9;
   }

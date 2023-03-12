@@ -4,6 +4,7 @@ import PrimeVue from 'primevue/config';
 
 
 
+
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
@@ -212,3 +213,4 @@ app.component('VirtualScroller', VirtualScroller);
 
 
 app.mount('#app')
+
