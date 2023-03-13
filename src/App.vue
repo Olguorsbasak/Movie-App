@@ -1,21 +1,8 @@
-<script >
-import Movie from './components/Movie.vue'
-export default 
-{
-  name: 'App',
-  components: {
-    Movie
-  },
-}
-</script>
+<script></script>
 
 <template>
-  <div >
-    <Movie />
-    <Toast/>
-  </div>
+  <router-view />
+  <Toast />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

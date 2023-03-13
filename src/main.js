@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import PrimeVue from 'primevue/config';
-
+import router from './router/router';
 
 
 
@@ -114,6 +114,7 @@ app.use(PrimeVue, { ripple: true });
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(DialogService);
+app.use(router);
 
 
 app.directive('tooltip', Tooltip);

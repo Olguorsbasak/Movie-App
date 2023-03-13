@@ -1,16 +1,27 @@
 <template>
   <div class="movie-list">
-    <h1 class="header-left" style="text-align: left;">Movie App</h1>
-    <div class="header-right" style="text-align: right;">
+    <div class="header-right" style="text-align: right">
       <span class="p-input-icon-left">
         <i class="pi pi-search" />
-        <InputText icon="pi pi-search " v-model="searchTerm" placeholder="Search " />
+        <InputText
+          icon="pi pi-search "
+          v-model="searchTerm"
+          placeholder="Search "
+        />
       </span>
-      <Button @click="searchMovies" severity="secondary" label="Search" class="ml-2"></button>
+      <Button
+        @click="searchMovies"
+        severity="secondary"
+        label="Search"
+        class="ml-2"
+      ></Button>
     </div>
     <div class="movie-container">
       <div v-for="movie in movies" :key="movie.id" class="movie">
-        <Image :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="Movie Poster" />
+        <Image
+          :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path"
+          alt="Movie Poster"
+        />
         <h3 class="movie-title">{{ movie.title }}</h3>
         <p class="movie-rating">{{ movie.vote_average }}</p>
       </div>
@@ -46,7 +57,9 @@ export default {
       this.searchTerm = ""; // Arama kutusu sıfırlanıyor
     },
     getPopularMovies() {
-      fetch(`https://api.themoviedb.org/3/movie/popular?api_key=c71f45a7bd8b00bca54538370203e7d9`)
+      fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=c71f45a7bd8b00bca54538370203e7d9`
+      )
         .then((response) => response.json())
         .then((data) => {
           this.movies = data.results;
@@ -55,13 +68,52 @@ export default {
         .catch((error) => console.log(error));
     },
   },
-  created() {
-    this.getPopularMovies();
+  async created() {
+    await this.getPopularMovies();
   },
 };
-
 </script>
 
 <style>
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
 
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.movie img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2px;
+}
+
+.movie-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color: darkgreen;
+  font-weight: bolder;
+}
+
+.movie-rating {
+  margin: 0;
+  font-size: 14px;
+  color: #1e1d1d;
+  text-align: center;
+  font-weight: bolder;
+}
 </style>
