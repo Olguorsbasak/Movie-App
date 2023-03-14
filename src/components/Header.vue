@@ -1,5 +1,5 @@
 <template>
-  <h1 class="header-left" style="text-align: left">{{ label }}</h1>
+  <h1 class="text-green-900 text-center font-semibold">{{ label }}</h1>
 </template>
 
 <script>
@@ -7,7 +7,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: "",
+      default: "Movie App",
     },
   },
 };
