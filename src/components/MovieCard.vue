@@ -6,16 +6,24 @@
       class="flex flex-column align-items-center w-12 h-auto mb-2"
     />
     <h3
-      class="movie-title text-xl font-bold m-0 text-center text-teal-900 font-semibold"
+      class="movie-title text-base font-bold m-0 text-center text-teal-900 font-semibold"
     >
       {{ movie.title }}
     </h3>
     <p
-      class="movie-rating m-0 text-base text-center font-semibold text-yellow-500"
+      class="movie-rating m-0 text-base text-center font-semibold text-red-500"
     >
-      <i class="pi pi-star-fill text-yellow-500"></i>
+      <i class="pi pi-star-fill text-red-500"></i>
       {{ movie.vote_average }}
     </p>
+    <Button
+      @click="addBookmark"
+      label="Add Bookmark"
+      severity="success"
+      rounded
+      class="align-content-end"
+    >
+    </Button>
   </div>
 </template>
 
@@ -68,4 +76,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>

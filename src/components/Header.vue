@@ -1,14 +1,60 @@
-<template>
+<template #start>
+  <div class="flex justify-content-start">
+    <Menubar :model="items" class="flex-grow-1 mt-2" />
+    <div class="mt-3 ml-2">
+      <i
+        v-badge.success="2"
+        class="pi pi-bell p-overlay-badge"
+        style="font-size: 2rem"
+      />
+    </div>
+  </div>
   <h1 class="text-green-900 text-center font-semibold">{{ label }}</h1>
 </template>
 
 <script>
+import Menubar from "primevue/menubar";
+
 export default {
+  component: {
+    Menubar,
+  },
   props: {
     label: {
       type: String,
-      default: "Movie App",
+      default: "Find Your Movie",
     },
+  },
+  data() {
+    return {
+      items: [
+        {
+          label: "Home",
+          icon: "pi pi-home",
+          to: "/",
+        },
+        {
+          label: "Your Favorite Movies",
+          icon: "pi pi-ticket",
+          to: "/movies",
+        },
+        {
+          label: "About",
+          icon: "pi pi-info-circle",
+          to: "/about",
+        },
+        {
+          label: "Contact",
+          icon: "pi pi-envelope",
+          to: "/contact",
+        },
+        {
+          label: "Exit",
+          icon: "pi pi-sign-out",
+          to: "/exit",
+        },
+      ],
+    };
   },
 };
 </script>

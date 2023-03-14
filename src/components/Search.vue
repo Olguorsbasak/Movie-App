@@ -9,7 +9,7 @@
       />
     </span>
     <Button
-      @click="searchMovies"
+      @click="search"
       severity="secondary"
       label="Search"
       class="ml-2"
@@ -19,10 +19,14 @@
 
 <script>
 export default {
-  props: {
-    label: {
-      type: String,
-      default: "",
+  data() {
+    return {
+      searchTerm: "",
+    };
+  },
+  methods: {
+    search() {
+      this.$emit("search", this.searchTerm);
     },
   },
 };
