@@ -21,11 +21,11 @@
     </p>
     <Button
       label="Add Bookmark"
+      icon="pi pi-heart"
       severity="success"
-      rounded
       class="align-content-end"
-    >
-    </Button>
+      rounded
+    />
   </div>
 </template>
 
