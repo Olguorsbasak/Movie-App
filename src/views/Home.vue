@@ -22,6 +22,11 @@ export default {
   },
   methods: {
     async search(searchTerm) {
+      debugger;
+      if (searchTerm === "") {
+        this.getPopularMovies();
+        return;
+      }
       try {
         const response = await fetch(
           `https://api.themoviedb.org/3/search/movie?api_key=c71f45a7bd8b00bca54538370203e7d9&query=${searchTerm}`
@@ -35,11 +40,10 @@ export default {
         console.log(error);
       }
     },
-    resetMovies() {
+    /*   resetMovies() {
       this.movies = this.initialMovies;
       this.searchTerm = "";
-      this.$emit("resetMovies");
-    },
+    }, */
     async getPopularMovies() {
       try {
         const response = await fetch(
@@ -50,22 +54,6 @@ export default {
         this.initialMovies = data.results;
       } catch (error) {
         console.log(error);
-      }
-    },
-    addBookmark() {
-      // önce, local storage'ta "bookmarks" adında bir veri saklama alanı kontrol edilir
-      let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-
-      // daha sonra, mevcut filmin ID'si alınır
-      let movieId = this.movie.id;
-
-      // eğer bu film ID'si, bookmark listesinde yoksa, bu filmi bookmark'a ekleriz
-      if (!bookmarks.includes(movieId)) {
-        bookmarks.push(movieId);
-        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-        console.log("Bookmark added!");
-      } else {
-        console.log("Bookmark already exists!");
       }
     },
   },

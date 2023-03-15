@@ -1,7 +1,7 @@
 <template #start>
   <div class="flex justify-content-start">
     <Menubar :model="items" class="flex-grow-1 mt-2" />
-    <div class="mt-3 ml-2">
+    <div class="mt-4 ml-2">
       <i
         v-badge.success="2"
         class="pi pi-bell p-overlay-badge"
@@ -34,7 +34,7 @@ export default {
           to: "/",
         },
         {
-          label: "Your Favorite Movies",
+          label: "My List",
           icon: "pi pi-ticket",
           to: "/movies",
         },

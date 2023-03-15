@@ -1,10 +1,13 @@
 <template>
   <div class="flex flex-column align-items-center">
     <Image
+      v-if="movie.poster_path"
       :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path"
       alt="Movie Poster"
-      class="flex flex-column align-items-center w-12 h-auto mb-2"
+      class="flex flex-column align-items-center w-12 h-auto mb-2 mt-6"
+      @click="navigateToDetail"
     />
+
     <h3
       class="movie-title text-base font-bold m-0 text-center text-teal-900 font-semibold"
     >
@@ -17,7 +20,6 @@
       {{ movie.vote_average }}
     </p>
     <Button
-      @click="addBookmark"
       label="Add Bookmark"
       severity="success"
       rounded
@@ -35,44 +37,11 @@ export default {
       default: () => ({}),
     },
   },
-  /*   data() {
-    return {
-      movies: [],
-      searchTerm: "",
-      initialMovies: [],
-    };
-  },
   methods: {
-    
-    searchMovies() {
-      fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=c71f45a7bd8b00bca54538370203e7d9&query=${this.searchTerm}`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          this.movies = data.results;
-          this.initialMovies = data.results; 
-        .catch((error) => console.log(error));
-    },
-    
-    resetMovies() {
-      this.movies = this.initialMovies; 
-      this.searchTerm = ""; 
-    },
-    getPopularMovies() {
-      fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=c71f45a7bd8b00bca54538370203e7d9`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          this.movies = data.results;
-          this.initialMovies = data.results; 
-        .catch((error) => console.log(error));
+    navigateToDetail() {
+      this.$router.push(`/movie/${this.movie.id}`);
     },
   },
-  async created() {
-    await this.getPopularMovies();
-  }, */
 };
 </script>
 

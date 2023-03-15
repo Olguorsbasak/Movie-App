@@ -6,6 +6,7 @@
         icon="pi pi-search "
         v-model="searchTerm"
         placeholder="Search "
+        @keydown.enter="search"
       />
     </span>
     <Button
