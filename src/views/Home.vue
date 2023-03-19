@@ -2,6 +2,7 @@
 import MovieCard from "../components/MovieCard.vue";
 import Header from "../components/Header.vue";
 import Search from "../components/Search.vue";
+import MyList from "../views/MyList.vue";
 
 export default {
   name: "App",
@@ -9,12 +10,14 @@ export default {
     MovieCard,
     Header,
     Search,
+    MyList,
   },
   data() {
     return {
       movies: [],
       searchTerm: "",
       initialMovies: [],
+      myList: [],
     };
   },
   async created() {
@@ -39,6 +42,9 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    addToList(movie) {
+      this.myList.push(movie);
     },
     /*   resetMovies() {
       this.movies = this.initialMovies;

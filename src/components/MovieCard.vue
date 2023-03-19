@@ -25,11 +25,13 @@
       severity="success"
       class="align-content-end"
       rounded
+      @click="addToMyList"
     />
   </div>
 </template>
 
 <script>
+import { eventBus } from "../main.js";
 export default {
   props: {
     movie: {
@@ -40,6 +42,9 @@ export default {
   methods: {
     navigateToDetail() {
       this.$router.push(`/movie/${this.movie.id}`);
+    },
+    addToMyList() {
+      eventBus.$emit("add-to-my-list", this.movie);
     },
   },
 };
