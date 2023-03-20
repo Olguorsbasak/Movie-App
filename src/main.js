@@ -4,8 +4,7 @@ import PrimeVue from 'primevue/config';
 import router from './router/router';
 
 
-import Vue from 'vue';
-export const eventBus = new Vue();
+
 
 
 import AutoComplete from 'primevue/autocomplete';

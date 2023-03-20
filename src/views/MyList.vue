@@ -16,10 +16,5 @@ export default {
       myList: [],
     };
   },
-  created() {
-    eventBus.$on("add-to-my-list", (movie) => {
-      this.myList.push(movie);
-    });
-  },
 };
 </script>

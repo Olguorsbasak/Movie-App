@@ -1,8 +1,7 @@
 <template>
   <div class="flex flex-column align-items-center">
     <Image
-      v-if="movie.poster_path"
-      :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path"
+      :src="moviePath"
       alt="Movie Poster"
       class="flex flex-column align-items-center w-12 h-auto mb-2 mt-6"
       @click="navigateToDetail"
@@ -31,7 +30,6 @@
 </template>
 
 <script>
-import { eventBus } from "../main.js";
 export default {
   props: {
     movie: {
@@ -43,8 +41,14 @@ export default {
     navigateToDetail() {
       this.$router.push(`/movie/${this.movie.id}`);
     },
-    addToMyList() {
-      eventBus.$emit("add-to-my-list", this.movie);
+  },
+  computed: {
+    moviePath() {
+      if (this.movie.poster_path) {
+        return `https://image.tmdb.org/t/p/w300${this.movie.poster_path}`;
+      }
+
+      return "src/assets/images/movie-empty.jpeg";
     },
   },
 };

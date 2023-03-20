@@ -8,7 +8,6 @@
         style="font-size: 2rem"
       />
     </div>
-    <DialogBox v-if="showDialog" @close-dialog="closeDialog" />
   </div>
   <h1 class="text-green-900 text-center font-semibold">{{ label }}</h1>
 </template>
@@ -21,9 +20,7 @@ export default {
       default: "Find Your Movie",
     },
   },
-  components: {
-    DialogBox,
-  },
+
   data() {
     return {
       items: [
@@ -51,19 +48,9 @@ export default {
           label: "Exit",
           icon: "pi pi-sign-out",
           to: "/exit",
-          command: () => this.showDialogBox(),
         },
       ],
-      showDialog: false,
     };
-  },
-  methods: {
-    showDialogBox() {
-      this.showDialog = true;
-    },
-    closeDialog() {
-      this.showDialog = false;
-    },
   },
 };
 </script>
