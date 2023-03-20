@@ -1,13 +1,14 @@
 <template #start>
-  <div class="flex justify-content-start">
-    <Menubar :model="items" class="flex-grow-1 mt-2" />
-    <div class="mt-4 ml-2">
-      <i
-        v-badge.success="2"
-        class="pi pi-bell p-overlay-badge"
-        style="font-size: 2rem"
-      />
-    </div>
+  <div class="flex flex-wrap justify-start items-center">
+    <Menubar :model="items" class="flex-grow-1 mt-2">
+      <template #end>
+        <i
+          v-badge.success="2"
+          class="pi pi-bell p-overlay-badge mt-2"
+          style="font-size: 2rem"
+        />
+      </template>
+    </Menubar>
   </div>
   <h1 class="text-green-900 text-center font-semibold">{{ label }}</h1>
 </template>

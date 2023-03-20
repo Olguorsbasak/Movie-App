@@ -1,6 +1,5 @@
 <script>
 import MovieCard from "../components/MovieCard.vue";
-import Header from "../components/Header.vue";
 import Search from "../components/Search.vue";
 import MyList from "../views/MyList.vue";
 
@@ -8,7 +7,6 @@ export default {
   name: "App",
   components: {
     MovieCard,
-    Header,
     Search,
     MyList,
   },
@@ -25,7 +23,6 @@ export default {
   },
   methods: {
     async search(searchTerm) {
-      debugger;
       if (searchTerm === "") {
         this.getPopularMovies();
         return;
@@ -68,7 +65,6 @@ export default {
 
 <template>
   <div class="movie-list">
-    <Header />
     <Search @search="search" />
     <div class="grid">
       <div v-for="movie in movies" :key="movie.id" class="col-4">

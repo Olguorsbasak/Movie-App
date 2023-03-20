@@ -12,7 +12,8 @@
       <h3
         class="movie-title text-base font-bold m-0 text-center text-teal-900 font-semibold"
       >
-        Movie Name: {{ movie.title }}
+        Movie Name: <br />
+        {{ movie.title }}
       </h3>
     </div>
     <div v-else>
@@ -28,14 +29,15 @@
       <i class="pi pi-star-fill text-red-500"></i>
       Rating: {{ movie.vote_average }}
     </p>
-    <p class="movie-overview text-center font-semibold text-teal-800">
-      Overview: {{ movie.overview }}
+    <p class="movie-overview text-center font-semibold text-800 text-lg">
+      Overview: <br />
+      {{ movie.overview }}
     </p>
     <div v-if="movie.cast && movie.cast.length" class="cast-container">
       <h4 class="text-center font-bold text-lg mt-4 text-red-500">Cast:</h4>
       <ul class="cast-list flex flex-wrap justify-center">
         <li
-          v-for="(cast, index) in movie.cast"
+          v-for="(cast, index) in movie.cast.slice(0, 8)"
           :key="index"
           class="cast-item flex flex-column items-center m-2"
         >

@@ -24,12 +24,15 @@
       severity="success"
       class="align-content-end"
       rounded
-      @click="addToMyList"
+      @click="onAddToMyList"
     />
   </div>
 </template>
 
 <script>
+import { mapActions } from "pinia";
+import { useMovieStore } from "/src/store/MovieStore.js";
+
 export default {
   props: {
     movie: {
@@ -38,8 +41,12 @@ export default {
     },
   },
   methods: {
+    ...mapActions(useMovieStore, ["addToMyList"]),
     navigateToDetail() {
       this.$router.push(`/movie/${this.movie.id}`);
+    },
+    onAddToMyList() {
+      this.addToMyList(this.movie);
     },
   },
   computed: {
