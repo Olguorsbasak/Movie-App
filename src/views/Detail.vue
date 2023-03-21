@@ -68,7 +68,8 @@ export default {
 
   async created() {
     const id = this.$route.params.id;
-    const apiKey = "c71f45a7bd8b00bca54538370203e7d9";
+
+    const apiKey = import.meta.env.VITE_API_KEY;
     const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
     const castUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`;
 

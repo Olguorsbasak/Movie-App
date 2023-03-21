@@ -48,9 +48,10 @@ export default {
       this.searchTerm = "";
     }, */
     async getPopularMovies() {
+      const apiKey = import.meta.env.VITE_API_KEY;
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/popular?api_key=c71f45a7bd8b00bca54538370203e7d9`
+          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`
         );
         const data = await response.json();
         this.movies = data.results;
