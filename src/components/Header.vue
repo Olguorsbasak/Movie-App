@@ -35,21 +35,6 @@ export default {
           icon: "pi pi-ticket",
           to: "/mylist",
         },
-        {
-          label: "About",
-          icon: "pi pi-info-circle",
-          to: "/about",
-        },
-        {
-          label: "Contact",
-          icon: "pi pi-envelope",
-          to: "/contact",
-        },
-        {
-          label: "Exit",
-          icon: "pi pi-sign-out",
-          to: "/exit",
-        },
       ],
     };
   },
