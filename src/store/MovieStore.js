@@ -1,12 +1,16 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
-export const useMovieStore = defineStore('movie', {
+export const useMovieStore = defineStore("movie", {
   state: () => ({
-    myList: []
+    myList: [],
   }),
   actions: {
     addToMyList(movie) {
-      this.myList.push(movie);
-    }
-  }
+      const isValidMovie = !this.myList.some((item) => item.id === movie.id);
+
+      if (isValidMovie) {
+        this.myList.push(movie);
+      }
+    },
+  },
 });

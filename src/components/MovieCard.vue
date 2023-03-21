@@ -19,6 +19,7 @@
       {{ movie.vote_average }}
     </p>
     <Button
+      v-if="!addedToMyList"
       label="Add Bookmark"
       icon="pi pi-heart"
       severity="success"
@@ -38,6 +39,10 @@ export default {
     movie: {
       type: Object,
       default: () => ({}),
+    },
+    addedToMyList: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {
