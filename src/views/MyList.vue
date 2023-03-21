@@ -5,10 +5,10 @@
     >
       My List
     </h2>
-    <div class="movie-row" v-for="(rows, index) in myListRows" :key="index">
+    <div class="movie-row" v-for="(group, index) in myListRows" :key="index">
       <MovieCard
-        v-for="(movie, index) in myList"
-        :key="index"
+        v-for="(movie, movieIndex) in group"
+        :key="movieIndex"
         :movie="movie"
         @add-to-my-list="onAddToMyList"
         :added-to-my-list="true"
@@ -43,10 +43,8 @@ export default {
           index === self.findIndex((m) => m.id === movie.id)
       );
       const result = [];
-      let i = 0;
-      while (i < uniqueList.length) {
+      for (let i = 0; i < uniqueList.length; i += 3) {
         result.push(uniqueList.slice(i, i + 3));
-        i += 3;
       }
       return result;
     },
