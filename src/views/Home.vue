@@ -67,7 +67,11 @@ export default {
   <div class="movie-list">
     <Search @search="search" />
     <div class="grid">
-      <div v-for="movie in movies" :key="movie.id" class="col-4">
+      <div
+        v-for="movie in movies"
+        :key="movie.id"
+        class="col-12 md:col-6 lg:col-3"
+      >
         <MovieCard :movie="movie" />
       </div>
     </div>
