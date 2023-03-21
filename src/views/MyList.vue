@@ -20,7 +20,7 @@
 <style scoped>
 .movie-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-bottom: 20px;
 }
 </style>
