@@ -5,7 +5,11 @@
     >
       My List
     </h2>
-    <div class="movie-row" v-for="(group, index) in myListRows" :key="index">
+    <div
+      class="movie-row flex justify-content-evenly mb-4"
+      v-for="(group, index) in myListRows"
+      :key="index"
+    >
       <MovieCard
         v-for="(movie, movieIndex) in group"
         :key="movieIndex"
@@ -16,14 +20,6 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-.movie-row {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 20px;
-}
-</style>
 
 <script>
 import MovieCard from "../components/MovieCard.vue";
@@ -58,3 +54,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>

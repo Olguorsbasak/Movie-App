@@ -36,17 +36,12 @@ export default {
         this.movies = data.results;
         this.initialMovies = data.results;
         this.searchTerm = searchTerm;
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     },
     addToList(movie) {
       this.myList.push(movie);
     },
-    /*   resetMovies() {
-      this.movies = this.initialMovies;
-      this.searchTerm = "";
-    }, */
+
     async getPopularMovies() {
       const apiKey = import.meta.env.VITE_API_KEY;
       try {
@@ -56,9 +51,7 @@ export default {
         const data = await response.json();
         this.movies = data.results;
         this.initialMovies = data.results;
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     },
   },
 };
