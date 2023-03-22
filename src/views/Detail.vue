@@ -68,17 +68,34 @@ export default {
 
   async created() {
     const id = this.$route.params.id;
-
     const apiKey = import.meta.env.VITE_API_KEY;
     const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
     const castUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`;
 
-    const movieResponse = await fetch(movieUrl);
-    this.movie = await movieResponse.json();
+    const movieData = await this.fetchMovieData(movieUrl);
+    const castData = await this.fetchCastData(castUrl);
 
-    const castResponse = await fetch(castUrl);
-    const castData = await castResponse.json();
-    this.movie.cast = castData.cast;
+    this.updateMovieData(movieData, castData);
+  },
+
+  methods: {
+    async fetchMovieData(url) {
+      const response = await fetch(url);
+      return await response.json();
+    },
+
+    async fetchCastData(url) {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.cast;
+    },
+
+    updateMovieData(movieData, castData) {
+      this.movie = {
+        ...movieData,
+        cast: castData,
+      };
+    },
   },
 };
 </script>
